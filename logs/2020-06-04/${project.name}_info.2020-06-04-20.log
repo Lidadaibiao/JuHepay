@@ -1,0 +1,128 @@
+[${project.name}][${env:SERVER_PORT}] 2020-06-04 21:02:24,804 WARN [ThreadPoolTaskScheduler-1][DubboServiceMetadataRepository.java:216] - Current application will subscribe all services(size:2) in registry, a lot of memory and CPU cycles may be used, thus it's strongly recommend you using the externalized property 'dubbo.cloud.subscribed-services' to specify the services
+[${project.name}][${env:SERVER_PORT}] 2020-06-04 21:02:27,810 ERROR [http-nio-57021-exec-5][GlobalExceptionHandler.java:52] - 系统异常：
+org.apache.dubbo.rpc.RpcException: Failed to invoke the method applyMerchant in the service com.shanjupay.merchant.api.MerchantService. Tried 1 times of the providers [192.168.137.1:20890] (1/1) from the registry 127.0.0.1:8848 on the consumer 192.168.137.1 using the dubbo version 2.7.3. Last error is: Invoke remote method timeout. method: applyMerchant, provider: dubbo://192.168.137.1:20890/com.shanjupay.merchant.api.MerchantService?anyhost=true&application=merchant-application&bean.name=ServiceBean:com.shanjupay.merchant.api.MerchantService&category=providers&check=false&deprecated=false&dubbo=2.0.2&dynamic=true&generic=false&interface=com.shanjupay.merchant.api.MerchantService&lazy=false&methods=queryMerchantById,applyMerchant,createMerchant&path=com.shanjupay.merchant.api.MerchantService&pid=33628&protocol=dubbo&qos.enable=false&qos.port=22310&register=true&register.ip=192.168.137.1&release=2.7.3&remote.application=merchant-service&retries=-1&side=consumer&sticky=false&timeout=3000&timestamp=1591275340416, cause: org.apache.dubbo.remoting.TimeoutException: Waiting server-side response timeout by scan timer. start time: 2020-06-04 21:02:24.800, end time: 2020-06-04 21:02:27.809, client elapsed: 7 ms, server elapsed: 3002 ms, timeout: 3000 ms, request: Request [id=5, version=2.0.2, twoway=true, event=false, broken=false, data=RpcInvocation [methodName=applyMerchant, parameterTypes=[class java.lang.Long, class com.shanjupay.merchant.api.dto.MerchantDTO], arguments=[1268401949890924545, MerchantDTO(id=null, merchantName=学生餐22, merchantNo=2222123123, merchantAddress=安阳文峰区, merchantType=餐饮, businessLicensesImg=2d44a‐19e4‐44a7‐a714‐58ffc7da8e45e.png, idCardFrontImg=2d44a‐19e4‐44a7‐a714‐58ffc7da8e45e.png, idCardAfterImg=2d44a‐19e4‐44a7‐a714‐58ffc7da8e45e.png, username=大代表, password=null, mobile=null, contactsAddress=峨眉大姐, auditStatus=null, tenantId=null)], attachments={path=com.shanjupay.merchant.api.MerchantService, interface=com.shanjupay.merchant.api.MerchantService, version=0.0.0, timeout=3000}]], channel: /192.168.137.1:50823 -> /192.168.137.1:20890
+	at org.apache.dubbo.rpc.cluster.support.FailoverClusterInvoker.doInvoke(FailoverClusterInvoker.java:113)
+	at org.apache.dubbo.rpc.cluster.support.AbstractClusterInvoker.invoke(AbstractClusterInvoker.java:248)
+	at org.apache.dubbo.rpc.cluster.support.wrapper.MockClusterInvoker.invoke(MockClusterInvoker.java:78)
+	at org.apache.dubbo.rpc.cluster.support.RegistryAwareClusterInvoker.doInvoke(RegistryAwareClusterInvoker.java:56)
+	at org.apache.dubbo.rpc.cluster.support.AbstractClusterInvoker.invoke(AbstractClusterInvoker.java:248)
+	at org.apache.dubbo.rpc.cluster.support.wrapper.MockClusterInvoker.invoke(MockClusterInvoker.java:78)
+	at org.apache.dubbo.rpc.proxy.InvokerInvocationHandler.invoke(InvokerInvocationHandler.java:55)
+	at org.apache.dubbo.common.bytecode.proxy0.applyMerchant(proxy0.java)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.dubbo.config.spring.beans.factory.annotation.ReferenceAnnotationBeanPostProcessor$ReferenceBeanInvocationHandler.invoke(ReferenceAnnotationBeanPostProcessor.java:260)
+	at com.sun.proxy.$Proxy143.applyMerchant(Unknown Source)
+	at com.shanjupay.merchant.controller.MerchantController.saveMerchant(MerchantController.java:64)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.web.trace.servlet.HttpTraceFilter.doFilterInternal(HttpTraceFilter.java:90)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:117)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:106)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.valves.RemoteIpValve.invoke(RemoteIpValve.java:679)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.util.concurrent.ExecutionException: org.apache.dubbo.remoting.TimeoutException: Waiting server-side response timeout by scan timer. start time: 2020-06-04 21:02:24.800, end time: 2020-06-04 21:02:27.809, client elapsed: 7 ms, server elapsed: 3002 ms, timeout: 3000 ms, request: Request [id=5, version=2.0.2, twoway=true, event=false, broken=false, data=RpcInvocation [methodName=applyMerchant, parameterTypes=[class java.lang.Long, class com.shanjupay.merchant.api.dto.MerchantDTO], arguments=[1268401949890924545, MerchantDTO(id=null, merchantName=学生餐22, merchantNo=2222123123, merchantAddress=安阳文峰区, merchantType=餐饮, businessLicensesImg=2d44a‐19e4‐44a7‐a714‐58ffc7da8e45e.png, idCardFrontImg=2d44a‐19e4‐44a7‐a714‐58ffc7da8e45e.png, idCardAfterImg=2d44a‐19e4‐44a7‐a714‐58ffc7da8e45e.png, username=大代表, password=null, mobile=null, contactsAddress=峨眉大姐, auditStatus=null, tenantId=null)], attachments={path=com.shanjupay.merchant.api.MerchantService, interface=com.shanjupay.merchant.api.MerchantService, version=0.0.0, timeout=3000}]], channel: /192.168.137.1:50823 -> /192.168.137.1:20890
+	at java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:357)
+	at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:1915)
+	at org.apache.dubbo.rpc.protocol.AsyncToSyncInvoker.invoke(AsyncToSyncInvoker.java:56)
+	at org.apache.dubbo.rpc.listener.ListenerInvokerWrapper.invoke(ListenerInvokerWrapper.java:78)
+	at org.apache.dubbo.monitor.support.MonitorFilter.invoke(MonitorFilter.java:92)
+	at org.apache.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:82)
+	at org.apache.dubbo.rpc.protocol.dubbo.filter.FutureFilter.invoke(FutureFilter.java:54)
+	at org.apache.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:82)
+	at org.apache.dubbo.rpc.filter.ConsumerContextFilter.invoke(ConsumerContextFilter.java:58)
+	at org.apache.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:82)
+	at org.apache.dubbo.rpc.protocol.ProtocolFilterWrapper$CallbackRegistrationInvoker.invoke(ProtocolFilterWrapper.java:157)
+	at org.apache.dubbo.rpc.protocol.InvokerWrapper.invoke(InvokerWrapper.java:56)
+	at org.apache.dubbo.rpc.cluster.support.FailoverClusterInvoker.doInvoke(FailoverClusterInvoker.java:82)
+	... 78 more
+Caused by: org.apache.dubbo.remoting.TimeoutException: Waiting server-side response timeout by scan timer. start time: 2020-06-04 21:02:24.800, end time: 2020-06-04 21:02:27.809, client elapsed: 7 ms, server elapsed: 3002 ms, timeout: 3000 ms, request: Request [id=5, version=2.0.2, twoway=true, event=false, broken=false, data=RpcInvocation [methodName=applyMerchant, parameterTypes=[class java.lang.Long, class com.shanjupay.merchant.api.dto.MerchantDTO], arguments=[1268401949890924545, MerchantDTO(id=null, merchantName=学生餐22, merchantNo=2222123123, merchantAddress=安阳文峰区, merchantType=餐饮, businessLicensesImg=2d44a‐19e4‐44a7‐a714‐58ffc7da8e45e.png, idCardFrontImg=2d44a‐19e4‐44a7‐a714‐58ffc7da8e45e.png, idCardAfterImg=2d44a‐19e4‐44a7‐a714‐58ffc7da8e45e.png, username=大代表, password=null, mobile=null, contactsAddress=峨眉大姐, auditStatus=null, tenantId=null)], attachments={path=com.shanjupay.merchant.api.MerchantService, interface=com.shanjupay.merchant.api.MerchantService, version=0.0.0, timeout=3000}]], channel: /192.168.137.1:50823 -> /192.168.137.1:20890
+	at org.apache.dubbo.remoting.exchange.support.DefaultFuture.doReceived(DefaultFuture.java:189)
+	at org.apache.dubbo.remoting.exchange.support.DefaultFuture.received(DefaultFuture.java:153)
+	at org.apache.dubbo.remoting.exchange.support.DefaultFuture$TimeoutCheckTask.run(DefaultFuture.java:252)
+	at org.apache.dubbo.common.timer.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:648)
+	at org.apache.dubbo.common.timer.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:727)
+	at org.apache.dubbo.common.timer.HashedWheelTimer$Worker.run(HashedWheelTimer.java:449)
+	... 1 more
+[${project.name}][${env:SERVER_PORT}] 2020-06-04 21:02:54,810 WARN [ThreadPoolTaskScheduler-1][DubboServiceMetadataRepository.java:216] - Current application will subscribe all services(size:2) in registry, a lot of memory and CPU cycles may be used, thus it's strongly recommend you using the externalized property 'dubbo.cloud.subscribed-services' to specify the services
+[${project.name}][${env:SERVER_PORT}] 2020-06-04 21:02:54,818 INFO [com.alibaba.nacos.naming.client.listener][DubboServiceDiscoveryAutoConfiguration.java:157] - The event of the service instances[name : merchant-service , size : 0] change is about to be dispatched
+[${project.name}][${env:SERVER_PORT}] 2020-06-04 21:02:54,818 INFO [com.alibaba.nacos.naming.client.listener][AbstractSpringCloudRegistry.java:213] - The Dubbo Service URL[ID : consumer://192.168.137.1/com.shanjupay.merchant.api.MerchantService] is being subscribed for service[name : merchant-service]
+[${project.name}][${env:SERVER_PORT}] 2020-06-04 21:02:54,823 WARN [com.alibaba.nacos.naming.client.listener][AbstractRegistry.java:395] -  [DUBBO] Ignore empty notify urls for subscribe url consumer://192.168.137.1/com.shanjupay.merchant.api.MerchantService?application=merchant-application&category=providers,configurators,routers&check=false&dubbo=2.0.2&interface=com.shanjupay.merchant.api.MerchantService&lazy=false&methods=queryMerchantById,applyMerchant,createMerchant&pid=33628&qos.enable=false&qos.port=22310&release=2.7.3&retries=-1&side=consumer&sticky=false&timeout=3000&timestamp=1591275339098, dubbo version: 2.7.3, current host: 192.168.137.1
+[${project.name}][${env:SERVER_PORT}] 2020-06-04 21:02:54,818 INFO [com.alibaba.nacos.naming.client.listener][AbstractSpringCloudRegistry.java:223] - The metadata of Dubbo service[key : com.shanjupay.merchant.api.MerchantService] can't be found when the subscribed service[name : merchant-service], and then try to initialize it
+[${project.name}][${env:SERVER_PORT}] 2020-06-04 21:02:54,825 WARN [com.alibaba.nacos.naming.client.listener][AbstractSpringCloudRegistry.java:234] - The metadata of Dubbo service[key : com.shanjupay.merchant.api.MerchantService] still can't be found, it could effect the further Dubbo service invocation
+[${project.name}][${env:SERVER_PORT}] 2020-06-04 21:03:21,637 WARN [com.alibaba.nacos.naming.client.listener][AbstractRegistry.java:395] -  [DUBBO] Ignore empty notify urls for subscribe url provider://192.168.137.1:20890/com.shanjupay.merchant.api.MerchantService?anyhost=true&application=merchant-service&bean.name=ServiceBean:com.shanjupay.merchant.api.MerchantService&bind.ip=192.168.137.1&bind.port=20890&category=configurators&check=false&deprecated=false&dubbo=2.0.2&dynamic=true&generic=false&interface=com.shanjupay.merchant.api.MerchantService&methods=queryMerchantById,applyMerchant,createMerchant&pid=29344&qos.enable=false&qos.port=22240&register=true&release=2.7.3&side=provider&timestamp=1591275340416, dubbo version: 2.7.3, current host: 192.168.137.1
+[${project.name}][${env:SERVER_PORT}] 2020-06-04 21:03:21,638 INFO [com.alibaba.nacos.naming.client.listener][DubboServiceDiscoveryAutoConfiguration.java:157] - The event of the service instances[name : merchant-application , size : 1] change is about to be dispatched
+[${project.name}][${env:SERVER_PORT}] 2020-06-04 21:03:21,638 INFO [com.alibaba.nacos.naming.client.listener][AbstractSpringCloudRegistry.java:213] - The Dubbo Service URL[ID : provider://192.168.137.1:20890/com.shanjupay.merchant.api.MerchantService] is being subscribed for service[name : merchant-application]
+[${project.name}][${env:SERVER_PORT}] 2020-06-04 21:03:21,638 INFO [com.alibaba.nacos.naming.client.listener][AbstractSpringCloudRegistry.java:223] - The metadata of Dubbo service[key : com.shanjupay.merchant.api.MerchantService] can't be found when the subscribed service[name : merchant-application], and then try to initialize it
+[${project.name}][${env:SERVER_PORT}] 2020-06-04 21:03:21,639 WARN [com.alibaba.nacos.naming.client.listener][AbstractSpringCloudRegistry.java:234] - The metadata of Dubbo service[key : com.shanjupay.merchant.api.MerchantService] still can't be found, it could effect the further Dubbo service invocation
+[${project.name}][${env:SERVER_PORT}] 2020-06-04 21:03:21,639 WARN [ThreadPoolTaskScheduler-1][DubboServiceMetadataRepository.java:216] - Current application will subscribe all services(size:2) in registry, a lot of memory and CPU cycles may be used, thus it's strongly recommend you using the externalized property 'dubbo.cloud.subscribed-services' to specify the services
+[${project.name}][${env:SERVER_PORT}] 2020-06-04 21:03:21,653 WARN [com.alibaba.nacos.naming.push.receiver][HostReactor.java:110] - out of date data received, old-t: 1591275801639, new-t: 1591275745826
+[${project.name}][${env:SERVER_PORT}] 2020-06-04 21:03:21,767 WARN [DubboClientHandler-192.168.137.1:20890-thread-2][DefaultFuture.java:155] -  [DUBBO] The timeout response finally returned at 2020-06-04 21:03:21.767, response Response [id=5, version=null, status=20, event=false, error=null, result=AppResponse [value=null, exception=null]], channel: /192.168.137.1:50823 -> /192.168.137.1:20890, dubbo version: 2.7.3, current host: 192.168.137.1
+[${project.name}][${env:SERVER_PORT}] 2020-06-04 21:03:22,645 INFO [com.alibaba.nacos.naming.client.listener][DubboServiceDiscoveryAutoConfiguration.java:157] - The event of the service instances[name : merchant-service , size : 1] change is about to be dispatched
+[${project.name}][${env:SERVER_PORT}] 2020-06-04 21:03:22,645 INFO [com.alibaba.nacos.naming.client.listener][AbstractRegistry.java:399] -  [DUBBO] Notify urls for subscribe url consumer://192.168.137.1/com.shanjupay.merchant.api.MerchantService?application=merchant-application&category=providers,configurators,routers&check=false&dubbo=2.0.2&interface=com.shanjupay.merchant.api.MerchantService&lazy=false&methods=queryMerchantById,applyMerchant,createMerchant&pid=33628&qos.enable=false&qos.port=22310&release=2.7.3&retries=-1&side=consumer&sticky=false&timeout=3000&timestamp=1591275339098, urls: [dubbo://192.168.137.1:20890/com.shanjupay.merchant.api.MerchantService?anyhost=true&application=merchant-service&bean.name=ServiceBean:com.shanjupay.merchant.api.MerchantService&category=providers&deprecated=false&dubbo=2.0.2&dynamic=true&generic=false&interface=com.shanjupay.merchant.api.MerchantService&methods=queryMerchantById,applyMerchant,createMerchant&path=com.shanjupay.merchant.api.MerchantService&pid=29344&protocol=dubbo&register=true&release=2.7.3&side=provider&timestamp=1591275340416], dubbo version: 2.7.3, current host: 192.168.137.1
+[${project.name}][${env:SERVER_PORT}] 2020-06-04 21:03:22,645 INFO [com.alibaba.nacos.naming.client.listener][AbstractSpringCloudRegistry.java:213] - The Dubbo Service URL[ID : consumer://192.168.137.1/com.shanjupay.merchant.api.MerchantService] is being subscribed for service[name : merchant-service]
+[${project.name}][${env:SERVER_PORT}] 2020-06-04 21:03:22,645 INFO [com.alibaba.nacos.naming.client.listener][AbstractSpringCloudRegistry.java:223] - The metadata of Dubbo service[key : com.shanjupay.merchant.api.MerchantService] can't be found when the subscribed service[name : merchant-service], and then try to initialize it
+[${project.name}][${env:SERVER_PORT}] 2020-06-04 21:03:22,646 WARN [com.alibaba.nacos.naming.client.listener][AbstractSpringCloudRegistry.java:234] - The metadata of Dubbo service[key : com.shanjupay.merchant.api.MerchantService] still can't be found, it could effect the further Dubbo service invocation
+[${project.name}][${env:SERVER_PORT}] 2020-06-04 21:03:22,648 WARN [com.alibaba.nacos.naming.client.listener][AbstractRegistry.java:395] -  [DUBBO] Ignore empty notify urls for subscribe url provider://192.168.137.1:20890/com.shanjupay.merchant.api.MerchantService?anyhost=true&application=merchant-service&bean.name=ServiceBean:com.shanjupay.merchant.api.MerchantService&bind.ip=192.168.137.1&bind.port=20890&category=configurators&check=false&deprecated=false&dubbo=2.0.2&dynamic=true&generic=false&interface=com.shanjupay.merchant.api.MerchantService&methods=queryMerchantById,applyMerchant,createMerchant&pid=29344&qos.enable=false&qos.port=22240&register=true&release=2.7.3&side=provider&timestamp=1591275340416, dubbo version: 2.7.3, current host: 192.168.137.1
+[${project.name}][${env:SERVER_PORT}] 2020-06-04 21:03:24,814 WARN [ThreadPoolTaskScheduler-1][DubboServiceMetadataRepository.java:216] - Current application will subscribe all services(size:2) in registry, a lot of memory and CPU cycles may be used, thus it's strongly recommend you using the externalized property 'dubbo.cloud.subscribed-services' to specify the services
+[${project.name}][${env:SERVER_PORT}] 2020-06-04 21:03:51,646 WARN [ThreadPoolTaskScheduler-1][DubboServiceMetadataRepository.java:216] - Current application will subscribe all services(size:2) in registry, a lot of memory and CPU cycles may be used, thus it's strongly recommend you using the externalized property 'dubbo.cloud.subscribed-services' to specify the services
+[${project.name}][${env:SERVER_PORT}] 2020-06-04 21:03:54,819 WARN [ThreadPoolTaskScheduler-1][DubboServiceMetadataRepository.java:216] - Current application will subscribe all services(size:2) in registry, a lot of memory and CPU cycles may be used, thus it's strongly recommend you using the externalized property 'dubbo.cloud.subscribed-services' to specify the services
